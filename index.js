@@ -1,18 +1,13 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const movies = require('./movies')
-const { getAllMovies} = require('./controller/movies')
+const { getAllMovies, getMovie} = require('./controller/movies')
 
 const app = express()
 
 app.get('/movies', getAllMovies)
 
-app.get('/movies/:id', (request, response) => {
-  const movie = movies.filter((movie) => { return movie.title.toLowerCase().includes(request.params.id) ||
-    movie.directors.toString().toLowerCase().includes(request.params.id) })
-
-  return response.send(movie)
-})
+app.get('/movies/:id', getMovie)
 
 app.use(bodyParser.json())
 
