@@ -9,13 +9,16 @@ app.get('/movies', (request, response) => {
 })
 
 app.get('/movies/:id', (request, response) => {
+  const movie = movies.filter((movie) => { return movie.title.toLowerCase().includes(request.params.id) ||
+    movie.directors.toString().toLowerCase().includes(request.params.id) })
 
+  return response.send(movie)
 })
 
 app.use(bodyParser.json())
 
 app.post('/movies', (request, response) =>{
-  
+
 })
 
 app.all('*', (request, response) => {
