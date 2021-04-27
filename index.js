@@ -1,12 +1,21 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const movies = require('./movies')
-const { request } = require('express')
 
 const app = express()
 
 app.get('/movies', (request, response) => {
   return response.send(movies)
+})
+
+app.get('/movies/:id', (request, response) => {
+
+})
+
+app.use(bodyParser.json())
+
+app.post('/movies', (request, response) =>{
+  
 })
 
 app.all('*', (request, response) => {
