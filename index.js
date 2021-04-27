@@ -1,7 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const movies = require('./movies')
-const { getAllMovies, getMovie} = require('./controller/movies')
+const { getAllMovies, getMovie, addNewMovie} = require('./controller/movies')
 
 const app = express()
 
@@ -11,9 +11,7 @@ app.get('/movies/:id', getMovie)
 
 app.use(bodyParser.json())
 
-app.post('/movies', (request, response) =>{
-
-})
+app.post('/movies', addNewMovie)
 
 app.all('*', (request, response) => {
   return response.sendStatus(404)
