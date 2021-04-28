@@ -11,7 +11,7 @@ const getMovie = (request, response) => {
   return response.send(movie)
 }
 
-const addNewMovie = (request, response) =>{
+const addNewMovie = (request, response) => {
   const {
     title, directors, releaseDate, rating, runTime, genres
   } = request.body
